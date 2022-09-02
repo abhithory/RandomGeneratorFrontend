@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import '../css/RandomNames.css';
 import { WalletContext } from '../utilities/WalletContext';
 import { getContract } from '../utilities/Contract';
-import { Button, Group, Text, Checkbox, Loader, Divider, useMantineTheme, ScrollArea } from '@mantine/core';
+import { Button, Group, Text, Checkbox, Loader, Divider, ScrollArea } from '@mantine/core';
 import {  IconFileSpreadsheet, IconKeyboard, IconUpload, IconX } from '@tabler/icons';
 import { Dropzone, MS_EXCEL_MIME_TYPE } from '@mantine/dropzone';
 import ResultCard from '../components/GenerateName/ResultCard'

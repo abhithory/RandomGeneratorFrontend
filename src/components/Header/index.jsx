@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link, useLocation } from "react-router-dom";
+// import { Link, useLocation } from "react-router-dom";
 
 export default function Header() {
-  const location = useLocation();
+  // const location = useLocation();
 
   return (
     <div className='main-header'>

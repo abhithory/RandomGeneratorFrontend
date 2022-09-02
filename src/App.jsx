@@ -6,9 +6,9 @@ import {
 
 import Header from './components/Header'
 
-import RandomNumber from './pages/RandomNumber'
+// import RandomNumber from './pages/RandomNumber'
 import RandomNames from './pages/RandomNames'
-import History from "./pages/History";
+// import History from "./pages/History";
 import WalletContextWrapper from "./utilities/WalletContext";
 
 function App() {
