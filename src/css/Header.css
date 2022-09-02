@@ -1,0 +1,25 @@
+.main-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-header h1{
+    color: orange;
+  font-family: 'Dancing Script', cursive;
+font-size: 3rem;
+}
+
+@media (max-width: 620px) {
+    .main-header h1{
+font-size: 2rem;
+
+    }
+}
+
+@media (max-width: 400px) {
+    .main-header h1{
+font-size: 1.6rem;
+
+    }
+}
