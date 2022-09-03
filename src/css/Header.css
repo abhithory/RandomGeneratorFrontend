@@ -2,12 +2,31 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    margin: 2rem 0;
 }
 
 .main-header h1{
     color: orange;
   font-family: 'Dancing Script', cursive;
 font-size: 3rem;
+margin: 0;
+}
+.main-header p{
+margin: 0;
+
+}
+
+.main-header span{
+    margin: 0 1rem;
+    cursor: pointer;    
+}
+.main-header span:hover{
+    color: orange;  
+}
+
+.main-header .active-text{
+    color: orange;  
 }
 
 @media (max-width: 620px) {

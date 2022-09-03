@@ -1,13 +1,20 @@
 import React from 'react'
 // import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import ChangeLang from './ChangeLang';
+
 
 export default function Header() {
   // const location = useLocation();
 
+  const { t } = useTranslation();
+
+
   return (
     <div className='main-header'>
       {/* <Link to="/"> */}
-        <h1>Random Name Generator</h1>
+        <h1>{t('header_name')}</h1>
+        <ChangeLang />
       {/* </Link> */}
       {/* <ul>
         {location.pathname !== "/randomNumber" &&

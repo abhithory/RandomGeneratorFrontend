@@ -1,0 +1,27 @@
+{
+  "header_name": "מחולל שמות אקרא",
+  "how_you_want_to_fill_data":"נתונים למלא רוצה אתה א",
+  "excel_file":"קובץ אקסל",
+  "input_box":"תיבת קלט",
+  "picked_file":"Picked file:",
+  "drag_file_here":"גרור את הקובץ לכאן או לחץ כדי לבחור קבצים",
+  "attach_excel":"צרף את קובץ האקסל שלך כאן",
+  "some_names_from_file":"Some names from file",
+  "textarea_placeholder":"הדבק כאן שמות בצורה זו&#10;שם 1&#10;שם 2&#10;שם 3&#10;שם 4&#10;שם 5&#10;שם 6&#10;'",
+  "filters":"מסננים",
+  "remove_duplicate_names":"הסר שמות כפולים",
+  "process_data":"לעבד את הנתונים",
+  "total_names":"Total Names:",
+  "process_again":"Process data again",
+  "pick_ran_name":"בחר שם אקראי",
+  "pick_winner":"לבחור מנצח",
+  "not_allowed":"Not allowed to pick Winner",
+  "connect_wallet":"Connect Wallet",
+  "result":"תוצהאה",
+  "check_code_smart_contract":"Check our Random Name/Number Generator Smart Contract",
+  "click_to_check":"Check Smart contract",
+  "loading":"Loading",
+  "please_wait":"Please wait, We are reading data this file",
+  "verify_trans":"Verify Transaction"
+ 
+}

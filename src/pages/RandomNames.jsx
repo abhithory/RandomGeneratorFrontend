@@ -7,10 +7,16 @@ import { Button, Group, Text, Checkbox, Loader, Divider, ScrollArea } from '@man
 import {  IconFileSpreadsheet, IconKeyboard, IconUpload, IconX } from '@tabler/icons';
 import { Dropzone, MS_EXCEL_MIME_TYPE } from '@mantine/dropzone';
 import ResultCard from '../components/GenerateName/ResultCard'
+import { BLOCK_EXPLORER_URL_FOR_ADDRESS } from '../constants/URLs';
+import RandomGeneratorData from "../constants/RandomGeneratorData.json";
+import { useTranslation } from "react-i18next";
 const Excel = require('exceljs');
+
+
 
 export default function RandomNames() {
   const [dataProcessed, setDataProcessed] = useState(false);
+  const [isOwnerUser, setIsOwnerUser] = useState(false);
 
   const [duplicateFilter, setDuplicateFilter] = useState(false);
   const [fromFile, setFromFile] = useState(true);
@@ -27,6 +33,7 @@ export default function RandomNames() {
 
   const { connected, provider, connectWithMetamask, automaticConnectMetamask } = useContext(WalletContext);
 
+  const { t } = useTranslation();
 
 
   const processInputData = () => {
@@ -111,18 +118,31 @@ export default function RandomNames() {
 
    useEffect(() => {
     automaticConnectMetamask();
-  }, [])
+  }, []);
+
+  const checkOwenrUser = async () => {
+    const contract = getContract(provider.getSigner());
+    const tx = await contract.isUserOwner();
+    setIsOwnerUser(tx)
+  }
+
+  useEffect(() => {
+    if (connected) {
+      checkOwenrUser()
+    }
+  }, [connected])
 
   const buttonColor = "orange"
   return (
     !loadingSheet ?
+    <>
       <div className="div-random-names">
         <div className="item-randon-names">
           <div className="input-options">
-            <h2>How you want to fill data?</h2>
+            <h2>{t('how_you_want_to_fill_data')}</h2>
             <div className="input-options-buttons">
-              <Button variant={fromFile ? 'filled' : 'outline'} size='xs' color={buttonColor} onClick={() => { setFromFile(true) }} leftIcon={<IconFileSpreadsheet />}>Excel file</Button>
-              <Button variant={!fromFile ? 'filled' : 'outline'} size='xs' color={buttonColor} onClick={() => { setFromFile(false) }} leftIcon={<IconKeyboard />}>Input box</Button>
+              <Button variant={fromFile ? 'filled' : 'outline'} size='xs' color={buttonColor} onClick={() => { setFromFile(true) }} leftIcon={<IconFileSpreadsheet />}>{t('excel_file')}</Button>
+              <Button variant={!fromFile ? 'filled' : 'outline'} size='xs' color={buttonColor} onClick={() => { setFromFile(false) }} leftIcon={<IconKeyboard />}>{t('input_box')}</Button>
 
             </div>
           </div>
@@ -132,7 +152,7 @@ export default function RandomNames() {
 
               {uploadedFile != null && (
                 <Text size="sm" align="center" mt="sm">
-                  Picked file: {uploadedFile.name}
+                  {t('picked_file')} {uploadedFile.name}
                 </Text>
               )}
 
@@ -164,10 +184,10 @@ export default function RandomNames() {
 
                   <div>
                     <Text size="xl" inline color={buttonColor} weight={500}>
-                      Drag file here or click to select files
+                      {t("drag_file_here")}
                     </Text>
                     <Text size="sm" color="dimmed" inline mt={7}>
-                      Attach your excel File here
+                      {t("attach_excel")}
                     </Text>
                   </div>
                 </Group>
@@ -175,7 +195,7 @@ export default function RandomNames() {
 
               {allNamesList && (
                 <>
-                  <h3>Some names from file</h3>
+                  <h3>{t('some_names_from_file')}</h3>
 
                   <ScrollArea style={{ height: "10rem", backgroundColor: "white", color: "black", padding: "0 1rem" }}>
 
@@ -204,7 +224,7 @@ export default function RandomNames() {
 
             </div>
             :
-            <textarea className='textarea-input-names' placeholder='Paste names here in this way&#10;name1&#10;name2&#10;name3&#10;name4&#10;name5&#10;name6&#10;' value={inputData} onChange={(e) => {
+            <textarea className='textarea-input-names' placeholder={t('textarea_placeholder')} value={inputData} onChange={(e) => {
               setInputData(e.target.value)
               setDataProcessed(false)
             }}>
@@ -215,7 +235,7 @@ export default function RandomNames() {
 
         <div className="item-randon-names">
           <div className="filters">
-            <h2>Filters</h2>
+            <h2>{t('filters')}</h2>
             {/* <fieldset id="group1" onChange={onDataChange} >
               <input type="radio" value="comma" name="dataAddedType"  />Values are comma sparated
               <input type="radio" value="newline" name="dataAddedType" />Values are saparated by new line
@@ -224,39 +244,41 @@ export default function RandomNames() {
               <Checkbox onChange={() => { setDuplicateFilter(!duplicateFilter) }}
                 color={buttonColor}
               />
-              <p>Remove Duplicate Names</p>
+              <p>{t('remove_duplicate_names')}</p>
             </div>
           </div>
           <div className="">
-            <Button variant='filled' size='sm' color={buttonColor} onClick={processInputData} >Process The data</Button>
+            <Button variant='filled' size='sm' color={buttonColor} onClick={processInputData} >{t('process_data')}</Button>
             {totalNames && (
               dataProcessed ?
-                <h5>Total Names: {totalNames}</h5>
+                <h5>{t('total_names')} {totalNames}</h5>
                 :
-                <h5>Process data again</h5>
+                <h5>{t('process_again')}</h5>
             )}
           </div>
           <Divider my='lg' />
 
           <div className="">
-            <h3>Pick random name</h3>
+            <h3>{t('pick_ran_name')}</h3>
 
             {
-              connected ?
-                <>
+              connected ?(
+                isOwnerUser?
                   <Button variant='filled' color={buttonColor} onClick={pickRandomWinner} disabled={!dataProcessed} loading={resultLoading}>
-                    Pick Winner</Button>
-                </>
+                    {t('pick_winner')}</Button>
+                    :
+                    <Button variant='filled' color={buttonColor}  disabled>{t('not_allowed')}</Button>
+                )
                 :
                 <Button variant='filled' color={buttonColor} onClick={connectWithMetamask} >
-                    Connect Wallet
+                    {t('connect_wallet')}
                     </Button>
             }
           </div>
           <Divider my='lg' />
 
           <div className="div-result">
-            <h3>Result</h3>
+            <h3>{t('result')}</h3>
 
 
 
@@ -274,11 +296,19 @@ export default function RandomNames() {
           </div>
         </div>
       </div>
+        <Divider my='lg' mt='xl' />
+      <div className="footer-random-names">
+      <h3>{t('check_code_smart_contract')}</h3>
+        <Button component="a" href={`${BLOCK_EXPLORER_URL_FOR_ADDRESS}${RandomGeneratorData.address}`}
+                rel="noopener noreferrer"
+                target="_blank" variant='filled' color={buttonColor} >{t('click_to_check')}</Button>
+      </div>
+      </>
 
       :
       <div className="loading-full">
-      <h1>Loading...</h1>
-      <p>Please wait, We are reading data this file</p>
+      <h1>{t('loading')}</h1>
+      <p>{t('please_wait')}</p>
       <Loader color={buttonColor} variant="bars" />
 
       </div>
