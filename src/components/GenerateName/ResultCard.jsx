@@ -5,7 +5,7 @@ import { BLOCK_EXPLORER_URL_FOR_TX } from './../../constants/URLs';
 import { useTranslation } from "react-i18next";
 
 
-export default function ResultCard({ txHash, winnerName,contestName,randomNum}) {
+export default function ResultCard({ txHash, winnerName,randomNum}) {
    
     const { t } = useTranslation();
 
@@ -13,7 +13,7 @@ export default function ResultCard({ txHash, winnerName,contestName,randomNum}) 
         <Card shadow="xl" p="lg" radius="md" withBorder>
 
             <Group position="apart" mb="xs" >
-                <Text weight={500} color="blue">{contestName}</Text>
+                <Text weight={500} color="blue">{t('random_winner')}</Text>
                 <Badge color='blue' variant='dot'>
                     {randomNum}
                 </Badge>

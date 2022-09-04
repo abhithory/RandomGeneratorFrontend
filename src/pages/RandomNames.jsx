@@ -132,7 +132,8 @@ export default function RandomNames() {
     }
   }, [connected])
 
-  const buttonColor = "orange"
+  const buttonColor = "orange";
+
   return (
     !loadingSheet ?
     <>
@@ -289,7 +290,7 @@ export default function RandomNames() {
               :
               (
                 result &&
-            <ResultCard txHash={result.txHash} winnerName={result.name} contestName={"Random Winner"} randomNum={result.number} />
+            <ResultCard txHash={result.txHash} winnerName={result.name} randomNum={result.number} />
 
               )
             }
