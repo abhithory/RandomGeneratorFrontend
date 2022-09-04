@@ -91,7 +91,7 @@ export default function RandomNames() {
     const txDetails = await tx.wait();
     const txHash = txDetails.transactionHash;
     const event = txDetails.events.find(event => event.event === 'RandomNumberGenerated');
-    return { randomNumber: Number(event.args.randomNumber), txHash };
+    return { randomNumber: (Number(event.args.randomNumber) - 1), txHash };
   }
 
 
