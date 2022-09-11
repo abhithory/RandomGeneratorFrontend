@@ -15,15 +15,17 @@ function App() {
   return (
     <WalletContextWrapper>
 
-    <Router>
-      <Header />
+<Header />
+<RandomNames />
+    {/* <Router>
 
       <Routes>
         <Route path="/" element={<RandomNames />} />
-        {/* <Route path="/randomNumber" element={<RandomNumber />}/>    */}
-        {/* <Route path="/history" element={<History />} /> */}
+        <Route path="/randomNumber" element={<RandomNumber />}/>   
+        <Route path="/history" element={<History />} />
       </Routes>
-    </Router>
+    </Router> */}
+    
     </WalletContextWrapper>
   );
 }
