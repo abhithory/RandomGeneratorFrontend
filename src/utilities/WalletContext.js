@@ -4,8 +4,8 @@ import { ethers } from "ethers";
 
 export const WalletContext = createContext();
 
-const NETWORK_CHAINID = 80001;
-const RPC_URL = "https://rpc-mumbai.matic.today";
+const NETWORK_CHAINID = 137;
+const RPC_URL = "https://polygon-rpc.com/";
 
 const WalletContextWrapper = (props) => {
     const [provider, setProvider] = useState(null);
@@ -30,15 +30,17 @@ const WalletContextWrapper = (props) => {
             await provider.send("eth_requestAccounts", []);
             const signer = provider.getSigner();
             const Network = await provider.getNetwork()
+            if (Number(Network.chainId) === Number(NETWORK_CHAINID)) {
+                setOnRinghNetwork(true);
             _eventLisners(provider)
             setProvider(provider)
             setConnected(true)
             setAddress(await signer.getAddress())
             setChainId(Network.chainId);
-            if (Number(Network.chainId) === Number(NETWORK_CHAINID)) {
-                setOnRinghNetwork(true);
+            
             } else {
                 setOnRinghNetwork(false);
+                switchToCorrectNetwork()
             }
 
         } else {

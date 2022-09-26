@@ -41,7 +41,7 @@ const heLan = {
 
 const enLan = {
   "header_name": "Random Name Generator",
-  "how_you_want_to_fill_data": "How you want to fill data?",
+  "how_you_want_to_fill_data": "?How you want to fill data",
   "excel_file": "Excel file",
   "input_box": "Input box",
   "picked_file": "Picked file:",
