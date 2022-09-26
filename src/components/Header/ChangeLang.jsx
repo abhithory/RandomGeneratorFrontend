@@ -20,14 +20,14 @@ export default function ChangeLang() {
         i18n.changeLanguage(e)
     }
 
-    useEffect(() => {
-      document.body.dir = currentLang.dir || "ltr "
-    }, [currentLang])
+    // useEffect(() => {
+    //   document.body.dir = currentLang.dir || "ltr "
+    // }, [currentLang])
     
     
     return (
         <div className="">
-        <p><span className={currentLang.value ==="en"?'active-text':''} onClick={()=>lanChangeHander('en')}>English</span>|<span className={currentLang.value !=="en"?'active-text':''} onClick={()=>lanChangeHander('he')}>עִברִית</span></p>
+        <p className='main-header-lanchange'><span className={currentLang.value ==="en"?'active-text':''} onClick={()=>lanChangeHander('en')}>English</span>|<span className={currentLang.value !=="en"?'active-text':''} onClick={()=>lanChangeHander('he')}>עִברִית</span></p>
         </div>
         )}
 

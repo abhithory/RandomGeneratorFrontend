@@ -13,7 +13,7 @@ export default function Header() {
   return (
     <div className='main-header'>
       {/* <Link to="/"> */}
-        <h1>{t('header_name')}</h1>
+        <h1 className='main-header-text'>{t('header_name')}</h1>
         <ChangeLang />
       {/* </Link> */}
       {/* <ul>

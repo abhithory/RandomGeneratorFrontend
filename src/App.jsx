@@ -13,11 +13,12 @@ import WalletContextWrapper from "./utilities/WalletContext";
 
 function App() {
   return (
-    <WalletContextWrapper>
-
-<Header />
-<RandomNames />
-    {/* <Router>
+    <WalletContextWrapper >
+      <div className="full-container-website">
+        <Header />
+        <RandomNames />
+      </div>
+      {/* <Router>
 
       <Routes>
         <Route path="/" element={<RandomNames />} />
@@ -25,7 +26,7 @@ function App() {
         <Route path="/history" element={<History />} />
       </Routes>
     </Router> */}
-    
+
     </WalletContextWrapper>
   );
 }

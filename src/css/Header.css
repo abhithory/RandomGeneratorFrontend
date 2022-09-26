@@ -4,15 +4,18 @@
     justify-content: center;
     flex-direction: column;
     margin: 2rem 0;
+    background: #16222A;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #1a2946, #1f3044);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #243554, #1e2e41); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.main-header h1{
+.main-header-text{
     color: orange;
   font-family: 'Dancing Script', cursive;
-font-size: 3rem;
+font-size: 3.4rem;
 margin: 0;
 }
-.main-header p{
+.main-header-lanchange{
 margin: 0;
 
 }
@@ -30,15 +33,15 @@ margin: 0;
 }
 
 @media (max-width: 620px) {
-    .main-header h1{
-font-size: 2rem;
+    .main-header-text{
+font-size: 3rem;
 
     }
 }
 
 @media (max-width: 400px) {
-    .main-header h1{
-font-size: 1.6rem;
+    .main-header-text{
+font-size: 2rem;
 
     }
 }

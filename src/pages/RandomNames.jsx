@@ -140,7 +140,7 @@ export default function RandomNames() {
       <div className="div-random-names">
         <div className="item-randon-names">
           <div className="input-options">
-            <h2>{t('how_you_want_to_fill_data')}</h2>
+            <h2 style={{fontSize:"2.3rem", padding:"0",margin:"0"}}>{t('how_you_want_to_fill_data')}</h2>
             <div className="input-options-buttons">
               <Button variant={fromFile ? 'filled' : 'outline'} size='xs' color={buttonColor} onClick={() => { setFromFile(true) }} leftIcon={<IconFileSpreadsheet />}>{t('excel_file')}</Button>
               <Button variant={!fromFile ? 'filled' : 'outline'} size='xs' color={buttonColor} onClick={() => { setFromFile(false) }} leftIcon={<IconKeyboard />}>{t('input_box')}</Button>
@@ -196,7 +196,7 @@ export default function RandomNames() {
 
               {allNamesList && (
                 <>
-                  <h3>{t('some_names_from_file')}</h3>
+                  <h3 style={{fontSize:"2.3rem", padding:"0",margin:"0"}}>{t('some_names_from_file')}</h3>
 
                   <ScrollArea style={{ height: "10rem", backgroundColor: "white", color: "black", padding: "0 1rem" }}>
 
@@ -236,7 +236,7 @@ export default function RandomNames() {
 
         <div className="item-randon-names">
           <div className="filters">
-            <h2>{t('filters')}</h2>
+            <h2 style={{fontSize:"2.3rem", padding:"0",margin:"0"}}>{t('filters')}</h2>
             {/* <fieldset id="group1" onChange={onDataChange} >
               <input type="radio" value="comma" name="dataAddedType"  />Values are comma sparated
               <input type="radio" value="newline" name="dataAddedType" />Values are saparated by new line
@@ -252,15 +252,15 @@ export default function RandomNames() {
             <Button variant='filled' size='sm' color={buttonColor} onClick={processInputData} >{t('process_data')}</Button>
             {totalNames && (
               dataProcessed ?
-                <h5>{t('total_names')} {totalNames}</h5>
+                <h5 style={{fontSize:"1.8rem", padding:"0",margin:"0"}}>{t('total_names')} {totalNames}</h5>
                 :
-                <h5>{t('process_again')}</h5>
+                <h5 style={{fontSize:"1.8rem", padding:"0",margin:"0"}}>{t('process_again')}</h5>
             )}
           </div>
           <Divider my='lg' />
 
           <div className="">
-            <h3>{t('pick_ran_name')}</h3>
+            <h3 style={{fontSize:"2.3rem", padding:"0",margin:"0"}}>{t('pick_ran_name')}</h3>
 
             {
               connected ?(
@@ -279,7 +279,7 @@ export default function RandomNames() {
           <Divider my='lg' />
 
           <div className="div-result">
-            <h3>{t('result')}</h3>
+            <h3 style={{fontSize:"2.3rem", padding:"0",margin:"0"}}>{t('result')}</h3>
 
 
 
@@ -299,7 +299,7 @@ export default function RandomNames() {
       </div>
         <Divider my='lg' mt='xl' />
       <div className="footer-random-names">
-      <h3>{t('check_code_smart_contract')}</h3>
+      <h3 style={{fontSize:"2.3rem", padding:"0",margin:"0"}}>{t('check_code_smart_contract')}</h3>
         <Button component="a" href={`${BLOCK_EXPLORER_URL_FOR_ADDRESS}${RandomGeneratorData.address}`}
                 rel="noopener noreferrer"
                 target="_blank" variant='filled' color={buttonColor} >{t('click_to_check')}</Button>
@@ -308,7 +308,7 @@ export default function RandomNames() {
 
       :
       <div className="loading-full">
-      <h1>{t('loading')}</h1>
+      <h1 style={{fontSize:"3.2rem"}}>{t('loading')}</h1>
       <p>{t('please_wait')}</p>
       <Loader color={buttonColor} variant="bars" />
 
